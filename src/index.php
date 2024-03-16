@@ -6,22 +6,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
 </head>
 <body>
-<div style="overflow: hidden;height: 250px;"> <!-- For Demo, Represents the body -->
+<div style="overflow: hidden;"> <!-- For Demo, Represents the body -->
 
-    <nav class="demo">
-        <a href="#" class="brand">
-            <img class="logo" src="/img/basket.png" />
-            <span>Picnic CSS</span>
+    <nav style="background-color: #EAEDFF">
+        <a href="/" class="brand">
+            <span>Infinite Tools</span>
         </a>
-
-        <!-- responsive-->
-        <input id="bmenub" type="checkbox" class="show">
-        <label for="bmenub" class="burger pseudo button">menu</label>
-
-        <div class="menu">
-            <a href="#" class="pseudo button icon-picture">Demo</a>
-            <a href="#" class="button icon-puzzle">Plugins</a>
-        </div>
     </nav>
 
 </div>
@@ -40,6 +30,7 @@
         </ul>
     </div>
     <div class="content">
+        <link rel="stylesheet" href="css/style.css">
         <?php if(isset($_GET["page"])) :
             include_once("pages/" . $_GET["page"] . "-tool.html");
         else : ?>
@@ -49,6 +40,5 @@
         endif;
         ?>
     </div>
-    <link rel="stylesheet" href="css/style.css">
 </body>
 </html>
