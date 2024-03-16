@@ -1,0 +1,12 @@
+<h1>Contador de Caracteres</h1>
+<textarea id="inputText" placeholder="Digite algo aqui..."></textarea>
+<button onclick="countCharacters()">Contar Caracteres</button>
+<p id="result"></p>
+
+<script>
+    function countCharacters() {
+        var text = document.getElementById('inputText').value;
+        var length = text.length;
+        document.getElementById('result').innerHTML = 'Quantidade de caracteres: ' + length;
+    }
+</script>

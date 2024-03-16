@@ -1,0 +1,39 @@
+<h1>Simulador Regex</h1>
+<input type="text" id="regex-input" placeholder="Digite sua regex aqui"/>
+<input type="text" id="text-input" placeholder="Digite o texto para testar"/>
+<button onclick="testRegex()">Testar</button>
+<div id="result"></div>
+<style>
+
+    input, button {
+        margin: 10px 0;
+        padding: 5px;
+        width: 100%;
+    }
+
+    #result {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #f0f0f0;
+    }
+
+</style>
+<script>
+    function testRegex() {
+        const regexInput = document.getElementById('regex-input').value;
+        const textInput = document.getElementById('text-input').value;
+        let result = 'No match found.';
+
+        try {
+            const regex = new RegExp(regexInput);
+            const matches = textInput.match(regex);
+
+            result = matches ? 'Matches found: ' + matches.join(', ') : 'No match found.';
+        } catch (e) {
+            result = 'Invalid Regex: ' + e.message;
+        }
+
+        document.getElementById('result').textContent = result;
+    }
+
+</script>

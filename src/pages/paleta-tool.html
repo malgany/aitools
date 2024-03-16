@@ -1,0 +1,64 @@
+<h1>Gerador de Cores e Paletas</h1>
+<div id="colorPicker">
+    <input type="color" id="baseColor" onchange="generatePalette()">
+    <div id="palette"></div>
+</div>
+<style>
+    #palette {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    .color-box {
+        width: 100px;
+        height: 100px;
+        margin: 0 5px;
+        position: relative;
+    }
+
+    .color-code {
+        text-align: center;
+        margin-top: 5px;
+    }
+
+</style>
+<script>
+    function generatePalette() {
+        const baseColor = document.getElementById('baseColor').value;
+        const palette = document.getElementById('palette');
+        palette.innerHTML = ''; // Clear previous palette
+
+        for (let i = 0; i < 5; i++) {
+            const colorBox = document.createElement('div');
+            const colorCode = document.createElement('div');
+
+            colorBox.className = 'color-box';
+            colorCode.className = 'color-code';
+
+            const adjustedColor = adjustColor(baseColor, i * 20);
+            colorBox.style.backgroundColor = adjustedColor;
+            colorCode.textContent = adjustedColor; // Set the text to the color code
+
+            const container = document.createElement('div'); // Container for color box and code
+            container.appendChild(colorBox);
+            container.appendChild(colorCode);
+
+            palette.appendChild(container);
+        }
+    }
+
+    function adjustColor(color, amount) {
+        let colorHex = parseInt(color.slice(1), 16);
+        let r = (colorHex >> 16) + amount;
+        let g = ((colorHex >> 8) & 0x00FF) + amount;
+        let b = (colorHex & 0x0000FF) + amount;
+
+        r = Math.max(Math.min(255, r), 0);
+        g = Math.max(Math.min(255, g), 0);
+        b = Math.max(Math.min(255, b), 0);
+
+        return "#" + (r << 16 | g << 8 | b).toString(16).padStart(6, '0');
+    }
+
+    window.onload = generatePalette;
+</script>

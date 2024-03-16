@@ -1,0 +1,29 @@
+<h1>Formatador e Minificador de Código</h1>
+<textarea id="inputCode" placeholder="Cole seu código aqui..."></textarea><br>
+<button onclick="formatCode()">Formatar</button>
+<button onclick="minifyCode()">Minificar</button>
+<h3>Resultado</h3>
+<textarea id="outputCode" readonly></textarea>
+<style>
+    textarea {
+        width: 100%;
+        height: 150px;
+    }
+</style>
+<script>
+    // Função para formatar código (exemplo simplificado)
+    function formatCode() {
+        const input = document.getElementById('inputCode').value;
+        // Aqui você pode integrar uma biblioteca de formatação de código real
+        const formattedCode = input.replace(/(\s{2,}|\n)/g, ' ').trim(); // Simplificação
+        document.getElementById('outputCode').value = formattedCode;
+    }
+
+    // Função para minificar código (exemplo simplificado)
+    function minifyCode() {
+        const input = document.getElementById('inputCode').value;
+        // Aqui você pode integrar uma biblioteca de minificação de código real
+        const minifiedCode = input.replace(/\s+/g, '').trim(); // Simplificação
+        document.getElementById('outputCode').value = minifiedCode;
+    }
+</script>

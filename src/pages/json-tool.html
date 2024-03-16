@@ -1,0 +1,50 @@
+<h1>Validador de JSON</h1>
+<textarea id="jsonInput" placeholder="Insira seu JSON aqui..."></textarea>
+<button onclick="validateJSON()">Validar JSON</button>
+<p id="result"></p>
+<script>
+    function validateJSON() {
+        const jsonInputValue = document.getElementById('jsonInput').value;
+        document.getElementById('jsonInput').value = jsonInputValue.replace(/“|”/g, '"');
+
+        const jsonInput = document.getElementById('jsonInput');
+        const jsonString = jsonInput.value;
+        try {
+            JSON.parse(jsonString);
+            document.getElementById('result').innerHTML = "JSON válido!";
+            document.getElementById('result').style.color = "green";
+        } catch (error) {
+            document.getElementById('result').innerHTML = "JSON inválido: " + error.message;
+            document.getElementById('result').style.color = "red";
+
+            const errorDetails = getErrorDetails(error.message);
+            if (errorDetails.line !== -1) {
+                highlightLineAndColumn(jsonInput, errorDetails.line, errorDetails.column);
+            }
+        }
+    }
+
+    function getErrorDetails(message) {
+        const lineMatch = message.match(/line (\d+)/);
+        const columnMatch = message.match(/column (\d+)/);
+        return {
+            line: lineMatch ? parseInt(lineMatch[1], 10) - 1 : -1, // Ajustar o número da linha se necessário
+            column: columnMatch ? parseInt(columnMatch[1], 10) - 1 : -1 // Ajustar o número da coluna se necessário
+        };
+    }
+
+    function highlightLineAndColumn(textarea, lineNumber, columnNumber) {
+        const lines = textarea.value.split('\n');
+        const highlightedText = lines.map((line, index) => {
+            if (index === lineNumber) {
+                const partBeforeError = line.substring(0, columnNumber);
+                const errorChar = line.substring(columnNumber, columnNumber + 1);
+                const partAfterError = line.substring(columnNumber + 1);
+                return `<span style="background-color: yellow;">${partBeforeError}<span style="background-color: blue; color: white;">${errorChar}</span>${partAfterError}</span>`;
+            } else {
+                return line;
+            }
+        }).join('\n');
+        document.getElementById('result').innerHTML += `<pre>${highlightedText}</pre>`;
+    }
+</script>

@@ -1,0 +1,12 @@
+<h1>Inversor de Texto</h1>
+<input type="text" id="inputText" placeholder="Digite algo aqui...">
+<button onclick="invertText()">Inverter Texto</button>
+<p id="result"></p>
+
+<script>
+    function invertText() {
+        var text = document.getElementById('inputText').value;
+        var inverted = text.split('').reverse().join('');
+        document.getElementById('result').innerHTML = 'Texto invertido: ' + inverted;
+    }
+</script>

@@ -1,0 +1,36 @@
+<h1>Conversor de Base</h1>
+<input type="text" id="inputValue" placeholder="Digite o valor">
+<select id="inputBase" class="mw-200">
+    <option value="2">Binário</option>
+    <option value="10" selected>Decimal</option>
+    <option value="16">Hexadecimal</option>
+</select>
+para
+<select id="outputBase" class="mw-200">
+    <option value="2">Binário</option>
+    <option value="10">Decimal</option>
+    <option value="16" selected>Hexadecimal</option>
+</select>
+<button onclick="convert()">Converter</button>
+<div id="result"></div>
+<script>
+    function convert() {
+        var inputValue = document.getElementById('inputValue').value;
+        var inputBase = parseInt(document.getElementById('inputBase').value);
+        var outputBase = parseInt(document.getElementById('outputBase').value);
+
+        // Converte o valor de entrada para decimal
+        var decimalValue = parseInt(inputValue, inputBase);
+
+        // Verifica se o valor é um número válido
+        if (isNaN(decimalValue)) {
+            document.getElementById('result').innerText = 'Por favor, insira um número válido.';
+            return;
+        }
+
+        // Converte o valor decimal para a base de saída
+        var result = decimalValue.toString(outputBase).toUpperCase();
+
+        document.getElementById('result').innerText = `Resultado: ${result}`;
+    }
+</script>

@@ -1,0 +1,22 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+<h1>Calculadora de Hash e Criptografia</h1>
+<input type="text" id="inputText" placeholder="Digite o texto aqui">
+<button onclick="generateHash()">Gerar Hash</button>
+<button onclick="encryptText()">Criptografar</button>
+<p>Resultado Hash: <span id="hashOutput"></span></p>
+<p>Texto Criptografado: <span id="encryptedOutput"></span></p>
+<script>
+    function generateHash() {
+        var inputText = document.getElementById("inputText").value;
+        var hashOutput = CryptoJS.SHA256(inputText);
+        document.getElementById("hashOutput").innerText = hashOutput.toString();
+    }
+
+    function encryptText() {
+        var inputText = document.getElementById("inputText").value;
+        var secretKey = "secreta"; // Defina uma chave secreta para a criptografia
+        var encryptedOutput = CryptoJS.AES.encrypt(inputText, secretKey);
+        document.getElementById("encryptedOutput").innerText = encryptedOutput.toString();
+    }
+</script>
