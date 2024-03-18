@@ -27,13 +27,6 @@ textarea {
     padding: 0;
 }
 
-.menu ul li a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: black;
-}
-
 .content {
     display: flex;
     flex-direction: column;
@@ -43,18 +36,98 @@ textarea {
     height: 100vh;
     max-width: 600px;
     margin: auto;
-    --color: rgba(114, 114, 114, 0.3);
-    background-color: #191a1a;
-    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
-      linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
-    background-size: 55px 55px;
-    
 }
 
 #result {
+    color: black;
     margin-top: 20px;
 }
 
 .mw-200 input {
      max-width: 200px;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+
+    background: #000000;
+    --gap: 5em;
+    --line: 1px;
+    --color: rgba(255, 255, 255, 0.2);
+
+    background-image: linear-gradient(
+            -90deg,
+            transparent calc(var(--gap) - var(--line)),
+            var(--color) calc(var(--gap) - var(--line) + 1px),
+            var(--color) var(--gap)
+    ),
+    linear-gradient(
+            0deg,
+            transparent calc(var(--gap) - var(--line)),
+            var(--color) calc(var(--gap) - var(--line) + 1px),
+            var(--color) var(--gap)
+    );
+    background-size: var(--gap) var(--gap);
+}
+
+.container h1, p, div {
+    color: #EAEDFF;
+}
+
+.container input, select, textarea {
+    color: black;
+}
+
+.brand span {
+    color: black;
+}
+
+.input {
+    /*display: flex;*/
+    flex-direction: column;
+    width: 250px;
+    background-color: #0D1117;
+    justify-content: center;
+    border-radius: 5px
+}
+
+.value {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    color: white;
+    display: flex;
+    position: relative;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.value:not(:active):hover,
+.value:focus {
+    background-color: #21262C;
+}
+
+.value:focus,
+.value:active {
+    background-color: #1A1F24;
+    outline: none;
+}
+
+.value::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -10px;
+    width: 5px;
+    height: 80%;
+    background-color: #2F81F7;
+    border-radius: 5px;
+    opacity: 0;
+}
+
+.value:focus::before,
+.value:active::before {
+    opacity: 1;
 }
