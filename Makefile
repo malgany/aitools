@@ -1,6 +1,6 @@
 push:
 	git add . && \
-	git commit -m "$$(git status)" && \
+	git commit -m "Modified files: $$(git diff --name-only)" && \
 	git push -f origin main
 deploy:
 	git pull
