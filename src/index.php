@@ -5,6 +5,7 @@
     <title>Infinite Tools - Sua coleção de ferramentas online</title>
     <meta name="description" content="Infinite Tools oferece uma ampla gama de ferramentas online para melhorar sua produtividade, incluindo contadores de caracteres, inversores de texto, validadores JSON e muito mais.">
     <meta name="keywords" content="ferramentas online, contador de caracteres, inversor de texto, validador JSON, gerador de cores">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
     <link rel="stylesheet" href="css/style.css">
 </head>
