@@ -43,6 +43,10 @@ textarea {
     margin-top: 20px;
 }
 
+p#result {
+    color: white;
+}
+
 .mw-200 input {
      max-width: 200px;
 }

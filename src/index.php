@@ -7,7 +7,7 @@
     <meta name="keywords" content="ferramentas online, contador de caracteres, inversor de texto, validador JSON, gerador de cores">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/picnic.css">
-    <link rel="stylesheet" href="css/style.css?v=0.1">
+    <link rel="stylesheet" href="css/style.css?v=0.2">
 </head>
 <body>
 <div style="overflow: hidden;">
