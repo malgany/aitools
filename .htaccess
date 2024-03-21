@@ -1,10 +1,11 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    # Checa se o mod_rewrite está habilitado
+    RewriteCond %{THE_REQUEST} /index\.php\?page=([^\s&]+) [NC]
+    RewriteRule ^ /index?page=%1 [R=302,L,NE]
 
-    # Reescreve /index.php?page=xxx para /index?page=xxx
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^index(?:\.php)?$ index.php [L,QSA]
+    # Internamente redireciona /index para /index.php
+    RewriteRule ^index$ index.php [L,NC]
 </IfModule>
 
 <filesMatch "\.(css|jpg|jpeg|png|gif|js|ico)$">
