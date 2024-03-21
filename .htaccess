@@ -2,7 +2,7 @@
     RewriteEngine On
     # Checa se o mod_rewrite está habilitado
     RewriteCond %{THE_REQUEST} /index\.php\?page=([^\s&]+) [NC]
-    RewriteRule ^ /index?page=%1 [R=302,L,NE]
+    RewriteRule ^ ?page=%1 [R=302,L,NE]
 
     # Internamente redireciona /index para /index.php
     RewriteRule ^index$ index.php [L,NC]
