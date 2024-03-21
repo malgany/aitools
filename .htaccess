@@ -1,15 +1,11 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Redireciona externamente de /index.php para a raiz sem barra
+    # Redireciona externamente de /index.php para a raiz
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\?page=([^\s&]+) [NC]
     RewriteRule ^index\.php$ /?page=%1 [R=302,L,NE]
 
-    # Redireciona para remover a barra, se presente, antes do ?
-    RewriteCond %{REQUEST_URI} ^/($|\?)
-    RewriteRule ^/?(.*) $1 [R=302,L,NE]
-
-    # Internamente redireciona para /index.php quando a query 'page' está presente
+    # Internamente redireciona a raiz para /index.php quando a query 'page' está presente
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{QUERY_STRING} ^page=([^\s&]+) [NC]
