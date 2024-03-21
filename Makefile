@@ -1,6 +1,7 @@
 push:
+	@DIFF=$$(git diff --name-only) && \
 	git add . && \
-	git commit -m "Modified files: $$(git diff --name-only)" && \
+	git commit -m "Modified files: $$DIFF" && \
 	git push -f origin main
 deploy:
 	git pull
