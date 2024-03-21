@@ -23,7 +23,7 @@
 </div>
 <div class="menu input">
     <ul>
-        <li><a class="value" href="index.php">Início</a></li>
+        <li><a class="value" href="/">Início</a></li>
         <li><a class="value" href="index.php?page=count">Contador de Caracteres</a></li>
         <li><a class="value" href="index.php?page=invert">Inversor de Texto</a></li>
         <li><a class="value" href="index.php?page=json">Validador JSON</a></li>
