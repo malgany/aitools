@@ -1,15 +1,13 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Redireciona externamente de /index.php para a raiz
+    # Redireciona externamente de /index.php para a raiz sem a barra
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\?page=([^\s&]+) [NC]
-    RewriteRule ^index\.php$ /?page=%1 [R=302,L,NE]
+    RewriteRule ^index\.php$ /?page=%1 [R=302,L,NE,QSD]
 
     # Internamente redireciona a raiz para /index.php quando a query 'page' está presente
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{QUERY_STRING} ^page=([^\s&]+) [NC]
-    RewriteRule ^$ index.php [L,NC]
+    RewriteRule ^(index\.php)?$ ?page=%1 [L,NC]
 </IfModule>
 
 <filesMatch "\.(css|jpg|jpeg|png|gif|js|ico)$">
