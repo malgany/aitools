@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Menu</title>
+    <title>Infinite Tools - Sua coleção de ferramentas online</title>
+    <meta name="description" content="Infinite Tools oferece uma ampla gama de ferramentas online para melhorar sua produtividade, incluindo contadores de caracteres, inversores de texto, validadores JSON e muito mais.">
+    <meta name="keywords" content="ferramentas online, contador de caracteres, inversor de texto, validador JSON, gerador de cores">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div style="overflow: hidden;"> <!-- For Demo, Represents the body -->
+<div style="overflow: hidden;">
 
     <nav style="background-color: #EAEDFF">
         <a href="/" class="brand">
@@ -18,7 +20,7 @@
 </div>
 <div class="menu input">
     <ul>
-        <li><a class="value" href="index.php">Inicio</a></li>
+        <li><a class="value" href="index.php">Início</a></li>
         <li><a class="value" href="index.php?page=count">Contador de Caracteres</a></li>
         <li><a class="value" href="index.php?page=invert">Inversor de Texto</a></li>
         <li><a class="value" href="index.php?page=json">Validador JSON</a></li>
@@ -35,11 +37,9 @@
         <?php if (isset($_GET["page"])) :
             include_once("pages/" . $_GET["page"] . "-tool.html");
         else : ?>
-            <h1>Bem-vindo ao Menu</h1>
-            <p>Selecione uma ferramenta do menu para começar.</p>
-        <?php
-        endif;
-        ?>
+            <h1>Bem-vindo ao Infinite Tools</h1>
+            <p>Selecione uma ferramenta do menu para começar a explorar nossas soluções que facilitam seu dia a dia.</p>
+        <?php endif; ?>
     </div>
 </div>
 </body>
