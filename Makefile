@@ -1,3 +1,7 @@
+push:
+	git add . && \
+	git commit -m "$$(git status)" && \
+	git push -f origin main
 deploy:
 	git pull
 	@export DEPLOYPATH=/home1/infin429/public_html/tools && \
